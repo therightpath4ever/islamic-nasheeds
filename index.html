@@ -38,7 +38,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/></svg>') center/cover no-repeat;
       background-repeat: repeat-x;
       animation: wave 15s linear infinite;
     }
@@ -115,6 +115,33 @@
       color: #0f2027;
       margin-bottom: 1rem;
       font-size: 1.5rem;
+    }
+
+    .subscribe-banner {
+      background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
+      color: #0f2027;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .subscribe-banner p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .subscribe-banner a {
+      color: #0f2027;
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity 0.3s ease;
+    }
+
+    .subscribe-banner a:hover {
+      opacity: 0.8;
     }
 
     .nasheed-container {
@@ -257,9 +284,14 @@
   <main>
     <section id="about" class="intro-section">
       <h2>About Our Collection</h2>
-      <p>Welcome to our Islamic Nasheeds collection. Nasheeds are traditional Islamic vocal songs that express spiritual themes, values, and devotion. This collection features carefully selected nasheeds that promote peace, reflection, and connection to Islamic teachings. Whether you're seeking moments of tranquility or spiritual inspiration, our curated selection provides beautiful music for all occasions.</p>
+      <p>Welcome to our Islamic Nasheeds collection. Nasheeds are traditional Islamic vocal songs that express spiritual themes, values, and devotion. This collection features carefully selected nasheeds for comfort, reflection, and inspiration.</p>
       <span class="badge">✨ Premium Collection</span>
     </section>
+
+    <div class="subscribe-banner">
+      <p>Subscribe to my channel for more Islamic nasheeds and beautiful spiritual music.</p>
+      <a href="https://www.youtube.com/@TheRightPath4Ever" target="_blank" rel="noopener noreferrer">👉 Subscribe to my Channel</a>
+    </div>
 
     <div id="nasheeds" class="nasheed-container">
       <section class="nasheed">
@@ -307,9 +339,9 @@
     <p>&copy; 2026 Islamic Nasheeds Collection. All rights reserved.</p>
     <p>Preserving and sharing the beauty of Islamic vocal traditions</p>
     <div class="social-links">
-      <a href="#facebook">Facebook</a> • 
-      <a href="#twitter">Twitter</a> • 
-      <a href="#youtube">YouTube</a>
+      <a href="https://www.youtube.com/@TheRightPath4Ever" target="_blank" rel="noopener noreferrer">YouTube</a> •
+      <a href="#facebook">Facebook</a> •
+      <a href="#twitter">Twitter</a>
     </div>
   </footer>
 </body>

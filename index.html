@@ -5,85 +5,312 @@
      crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Islamic Nasheeds</title>
+  <meta name="description" content="A curated collection of Islamic Nasheeds - beautiful spiritual vocal music for reflection and devotion." />
+  <title>Islamic Nasheeds Collection</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
     header {
-      background-color: #2c3e50;
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
       color: white;
-      padding: 1rem 2rem;
+      padding: 3rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
     }
-    h1 {
-      margin: 0;
-      font-weight: normal;
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-repeat: repeat-x;
+      animation: wave 15s linear infinite;
     }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(1200px); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    .nasheed {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    .intro-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      line-height: 1.6;
+      color: #555;
     }
+
+    .intro-section h2 {
+      color: #0f2027;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nasheed-container {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .nasheed {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 5px solid #2a5298;
+    }
+
+    .nasheed:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
     .nasheed h2 {
       margin-top: 0;
-      font-weight: normal;
-      color: #2980b9;
+      font-weight: 600;
+      color: #0f2027;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
+
+    .nasheed-artist {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .player-wrapper {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
     audio {
       width: 100%;
       outline: none;
-      margin-top: 0.5rem;
+      height: 40px;
+      border-radius: 6px;
+      cursor: pointer;
     }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #2a5298;
+    }
+
+    .nasheed-description {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 0.8rem;
+      line-height: 1.5;
+    }
+
     footer {
       text-align: center;
-      color: #aaa;
-      padding: 1rem;
+      color: white;
+      padding: 2rem 1rem;
       margin-top: 3rem;
+      background: rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      display: inline-block;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffd700;
+      color: #0f2027;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .intro-section {
+        padding: 1.5rem;
+      }
+
+      .nasheed {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Islamic Nasheeds Collection</h1>
+    <h1>🎵 Islamic Nasheeds Collection</h1>
+    <p>Spiritual Vocal Music for Reflection and Devotion</p>
   </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#nasheeds">Nasheeds</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <section class="nasheed">
-      <h2>Fi sukoon al-layl 1</h2>
-      <audio controls>
-        <source src="https://raw.githubusercontent.com/therightpath4ever/islamic-nasheeds/main/Calming%20Nasheed.mp4" type="audio/mp4" />
-        Your browser does not support the audio element.
-      </audio>
+    <section id="about" class="intro-section">
+      <h2>About Our Collection</h2>
+      <p>Welcome to our Islamic Nasheeds collection. Nasheeds are traditional Islamic vocal songs that express spiritual themes, values, and devotion. This collection features carefully selected nasheeds that promote peace, reflection, and connection to Islamic teachings. Whether you're seeking moments of tranquility or spiritual inspiration, our curated selection provides beautiful music for all occasions.</p>
+      <span class="badge">✨ Premium Collection</span>
     </section>
-    <section class="nasheed">
-      <h2>Nasheed Title 2</h2>
-      <audio controls>
-        <source src="nasheed2.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </section>
-    <section class="nasheed">
-      <h2>Nasheed Title 3</h2>
-      <audio controls>
-        <source src="nasheed3.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </section>
+
+    <div id="nasheeds" class="nasheed-container">
+      <section class="nasheed">
+        <h2>Fi Sukoon Al-Layl</h2>
+        <p class="nasheed-artist">In the Tranquility of the Night</p>
+        <p class="nasheed-description">A serene and contemplative nasheed that captures the peaceful moments of the night, perfect for meditation and spiritual reflection.</p>
+        <div class="player-wrapper">
+          <audio controls>
+            <source src="https://raw.githubusercontent.com/therightpath4ever/islamic-nasheeds/main/Calming%20Nasheed.mp4" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <span class="badge">Calming</span>
+      </section>
+
+      <section class="nasheed">
+        <h2>Nasheed Title 2</h2>
+        <p class="nasheed-artist">Traditional Islamic Vocal</p>
+        <p class="nasheed-description">An uplifting nasheed that celebrates Islamic values and spiritual growth. Replace the filename with your actual audio file for full functionality.</p>
+        <div class="player-wrapper">
+          <audio controls>
+            <source src="nasheed2.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <span class="badge">Inspirational</span>
+      </section>
+
+      <section class="nasheed">
+        <h2>Nasheed Title 3</h2>
+        <p class="nasheed-artist">Devotional Islamic Music</p>
+        <p class="nasheed-description">A meaningful composition that resonates with Islamic teachings and promotes inner peace. Ready to play when you upload your audio file.</p>
+        <div class="player-wrapper">
+          <audio controls>
+            <source src="nasheed3.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <span class="badge">Devotional</span>
+      </section>
+    </div>
   </main>
+
   <footer>
-    &copy; 2026 Islamic Nasheeds. All rights reserved.
+    <p>&copy; 2026 Islamic Nasheeds Collection. All rights reserved.</p>
+    <p>Preserving and sharing the beauty of Islamic vocal traditions</p>
+    <div class="social-links">
+      <a href="#facebook">Facebook</a> • 
+      <a href="#twitter">Twitter</a> • 
+      <a href="#youtube">YouTube</a>
+    </div>
   </footer>
 </body>
 </html>
